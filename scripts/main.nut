@@ -48,6 +48,10 @@ function onScriptUnload()
 
 function onPlayerJoin( player )
 {
+local country = geoip_country_name_by_addr(player.IP);
+    if (country != null) // the plugin returned a meaningful result
+        Message("* " + player.Name + " is connecting from " + country + ". [" + geoip_country_code_by_addr(player.IP) + "]");
+
 }
 
 function onPlayerPart( player, reason )
